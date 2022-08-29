@@ -6,7 +6,7 @@
 /*   By: jforner <jforner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:28:44 by jforner           #+#    #+#             */
-/*   Updated: 2022/08/23 15:54:01 by jforner          ###   ########.fr       */
+/*   Updated: 2022/08/29 13:50:45 by jforner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int main(void)
         }
         
     }
-    // system("leaks template");
+    // system("leaks container");
     return 0;
 }
