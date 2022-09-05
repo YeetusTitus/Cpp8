@@ -6,7 +6,7 @@
 /*   By: jforner <jforner@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 19:49:00 by jforner           #+#    #+#             */
-/*   Updated: 2022/09/01 21:52:57 by jforner          ###   ########.fr       */
+/*   Updated: 2022/09/05 14:42:20 by jforner          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,62 @@ template <typename T>
 class MutantStack :  public stack<T> {
 
 public:
-    MutantStack(void);
-    ~MutantStack(void);
+    MutantStack(void): MutantStack<T>::stack()
+    {}
+    ~MutantStack(void)
+    {}
         
-    MutantStack(const MutantStack &copy);
+    MutantStack(MutantStack<T> const &other) : MutantStack<T>::stack(other)
+    {}
 
-    MutantStack<T>& operator=(MutantStack &copy);
+    MutantStack<T> operator=(MutantStack<T> &other)
+    {
+        MutantStack<T>::stack::operator=(other);
+        return *this;
+    }
 
-    typedef typename MutantStack<T>::stack::container_type::iterator iterator;
-    iterator begin();
-    iterator end();
+    typedef typename MutantStack::stack::container_type::iterator iterator;
+    iterator begin()
+    {
+        return this->c.begin();
+    }
+    iterator end()
+    {
+        return this->c.end();
+    }
 
-    typedef typename MutantStack<T>::stack::container_type::const_iterator const_iterator;
-    const_iterator cbegin() const;
-    const_iterator cend() const;
+    typedef typename MutantStack::stack::container_type::const_iterator const_iterator;
+    const_iterator cbegin() const
+    {
+        return this->c.cbegin();
+    }
 
-    typedef typename MutantStack<T>::stack::container_type::reverse_iterator reverse_iterator;
-    reverse_iterator rbegin();
-    reverse_iterator rend();
+    const_iterator cend() const
+    {
+        return this->c.cend();
+    }
 
-    typedef typename MutantStack<T>::stack::container_type::const_reverse_iterator const_reverse_iterator;
-    const_reverse_iterator crbegin() const;
-    const_reverse_iterator crend() const;
+    typedef typename MutantStack::stack::container_type::reverse_iterator reverse_iterator;
+    reverse_iterator rbegin()
+    {
+        return this->c.rbegin();
+    }
+
+    reverse_iterator rend()
+    {
+        return this->c.rend();
+    }
+
+    typedef typename MutantStack::stack::container_type::const_reverse_iterator const_reverse_iterator;
+    const_reverse_iterator crbegin() const
+    {
+        return this->c.crbegin();
+    }
+
+    const_reverse_iterator crend() const
+    {
+        return this->c.crend();
+    }
 };
 
 
